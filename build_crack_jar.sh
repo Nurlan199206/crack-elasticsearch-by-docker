@@ -1,13 +1,13 @@
 #!/bin/bash
 v=( ${VERSION//./ } )
-branch="${v[0]}.${v[1]}"
-version="${v[0]}.${v[1]}.${v[2]}"
+branch="8.4"
+version="8.4.3"
 
 echo "Runtime environment"
 echo -e "branch: \t\t$branch"
 echo -e "version: \t\t$version"
-echo -e "http_proxy: \t\t$HTTP_PROXY"
-echo -e "https_proxy: \t\t$HTTPS_PROXY"
+#echo -e "http_proxy: \t\t$HTTP_PROXY"
+#echo -e "https_proxy: \t\t$HTTPS_PROXY"
 
 
 # Download source code
