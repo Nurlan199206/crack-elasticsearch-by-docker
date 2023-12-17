@@ -7,8 +7,13 @@ Crack elasticsearch 7.x / 8.x by docker
 已测试版本
 * elasticsearch 8.2.0
 * elasticsearch 8.5.0
+* elasticsearch 8.4.3
 * elasticsearch 8.7.0
 
+Если установка была через apt,yum то на хосте ставим openjdk-17
+
+файл build_crack_jar.sh и сгенерированную папку output через crach.sh перемещаем в /usr/share/elasticsearch/modules/x-pack-core/ 
+и запускаем скрипт
 
 # 注意事项
 
