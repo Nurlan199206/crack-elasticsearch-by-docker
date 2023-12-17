@@ -12,7 +12,7 @@ Crack elasticsearch 7.x / 8.x by docker
 
 Если установка была через apt,yum то на хосте ставим openjdk-17
 
-файл build_crack_jar.sh и сгенерированную папку output через crach.sh перемещаем в /usr/share/elasticsearch/modules/x-pack-core/ 
+файл build_crack_jar.sh и сгенерированную папку output через crack.sh перемещаем в /usr/share/elasticsearch/modules/x-pack-core/ 
 и запускаем скрипт
 
 # 注意事项
