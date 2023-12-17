@@ -10,10 +10,30 @@ Crack elasticsearch 7.x / 8.x by docker
 * elasticsearch 8.4.3
 * elasticsearch 8.7.0
 
-Если установка была через apt,yum то на хосте ставим openjdk-17
+Если установка была через apt,yum то на хосте ставим openjdk-17 и
 
-файл build_crack_jar.sh и сгенерированную папку output через crack.sh перемещаем в /usr/share/elasticsearch/modules/x-pack-core/ 
+1. запускаем crack.sh
+2. сгенерированную папку output через crack.sh перемещаем в /usr/share/elasticsearch/modules/x-pack-core
+3. правим файл build_crack_jar.sh
+4. перемещаем файл build_crack_jar.sh в /usr/share/elasticsearch/modules/x-pack-core
 и запускаем скрипт
+5. cp output/x-pack-core-8.4.3.crack.jar /usr/share/elasticsearch/modules/x-pack-core/x-pack-core-8.4.3.jar
+
+```
+{
+	"license": {
+		"uid": "cd5c2258-7422-4f9a-a7c9-cb8d29a25361",
+		"type": "platinum",
+		"issue_date_in_millis": 1678665600000,
+		"expiry_date_in_millis": 3207746200000,
+		"max_nodes": 10000,
+		"issued_to": "azi",
+		"issuer": "Web Form",
+		"signature": "AAAAAwAAAA1a8PJsIPdFZHe4WLkDAAABmC9ZN0hjZDBGYnVyRXpCOW5Bb3FjZDAxOWpSbTVoMVZwUzRxVk1PSmkxaktJRVl5MUYvUWh3bHZVUTllbXNPbzBUemtnbWpBbmlWRmRZb25KNFlBR2x0TXc2K2p1Y1VtMG1UQU9TRGZVSGRwaEJGUjE3bXd3LzRqZ05iLzRteWFNekdxRGpIYlFwYkJiNUs0U1hTVlJKNVlXekMrSlVUdFIvV0FNeWdOYnlESDc3MWhlY3hSQmdKSjJ2ZTcvYlBFOHhPQlV3ZHdDQ0tHcG5uOElCaDJ4K1hob29xSG85N0kvTWV3THhlQk9NL01VMFRjNDZpZEVXeUtUMXIyMlIveFpJUkk2WUdveEZaME9XWitGUi9WNTZVQW1FMG1DenhZU0ZmeXlZakVEMjZFT2NvOWxpZGlqVmlHNC8rWVVUYzMwRGVySHpIdURzKzFiRDl4TmM1TUp2VTBOUlJZUlAyV0ZVL2kvVk10L0NsbXNFYVZwT3NSU082dFNNa2prQ0ZsclZ4NTltbU1CVE5lR09Bck93V2J1Y3c9PQAAAQA+fZ30LicFouBamUw0wXUkbOsUP8p1bevJ+JsC4hWsed4ouqqJFipCa0bJJFISWzssU8BpxWQcnNE4WSSbZlSNuxzo2kGUuyE4wWyJyI7kfVpg8dm8POG0ugsIFLfgQISaFxI0MukpmGVyaukQONC9nqKSGgQ7xX2mOrnEC1tRwvBuiJT4aGulM2yMNxOB49DufwfR6w6KVZtpbbC/9BQtRVLl5Vyy/2I8F/il9q+U2J9EdGS4Gt6bW8N2GvZK4rqaPVSTxyh7YNar4IzErpfea9nYkdcgCJ9yOcZw4dCcwaTC90RTYqDIyIQ5h7ET+1Gpr9NemrrbYqfxUR2oIEmX",
+		"start_date_in_millis": 1678665600000
+	}
+}
+```
 
 # 注意事项
 
@@ -77,18 +97,3 @@ docker run -it --rm \
   ${service_name}:${version}
 ```
 
-```
-{
-	"license": {
-		"uid": "cd5c2258-7422-4f9a-a7c9-cb8d29a25361",
-		"type": "platinum",
-		"issue_date_in_millis": 1678665600000,
-		"expiry_date_in_millis": 3207746200000,
-		"max_nodes": 10000,
-		"issued_to": "azi",
-		"issuer": "Web Form",
-		"signature": "AAAAAwAAAA1a8PJsIPdFZHe4WLkDAAABmC9ZN0hjZDBGYnVyRXpCOW5Bb3FjZDAxOWpSbTVoMVZwUzRxVk1PSmkxaktJRVl5MUYvUWh3bHZVUTllbXNPbzBUemtnbWpBbmlWRmRZb25KNFlBR2x0TXc2K2p1Y1VtMG1UQU9TRGZVSGRwaEJGUjE3bXd3LzRqZ05iLzRteWFNekdxRGpIYlFwYkJiNUs0U1hTVlJKNVlXekMrSlVUdFIvV0FNeWdOYnlESDc3MWhlY3hSQmdKSjJ2ZTcvYlBFOHhPQlV3ZHdDQ0tHcG5uOElCaDJ4K1hob29xSG85N0kvTWV3THhlQk9NL01VMFRjNDZpZEVXeUtUMXIyMlIveFpJUkk2WUdveEZaME9XWitGUi9WNTZVQW1FMG1DenhZU0ZmeXlZakVEMjZFT2NvOWxpZGlqVmlHNC8rWVVUYzMwRGVySHpIdURzKzFiRDl4TmM1TUp2VTBOUlJZUlAyV0ZVL2kvVk10L0NsbXNFYVZwT3NSU082dFNNa2prQ0ZsclZ4NTltbU1CVE5lR09Bck93V2J1Y3c9PQAAAQA+fZ30LicFouBamUw0wXUkbOsUP8p1bevJ+JsC4hWsed4ouqqJFipCa0bJJFISWzssU8BpxWQcnNE4WSSbZlSNuxzo2kGUuyE4wWyJyI7kfVpg8dm8POG0ugsIFLfgQISaFxI0MukpmGVyaukQONC9nqKSGgQ7xX2mOrnEC1tRwvBuiJT4aGulM2yMNxOB49DufwfR6w6KVZtpbbC/9BQtRVLl5Vyy/2I8F/il9q+U2J9EdGS4Gt6bW8N2GvZK4rqaPVSTxyh7YNar4IzErpfea9nYkdcgCJ9yOcZw4dCcwaTC90RTYqDIyIQ5h7ET+1Gpr9NemrrbYqfxUR2oIEmX",
-		"start_date_in_millis": 1678665600000
-	}
-}
-```
